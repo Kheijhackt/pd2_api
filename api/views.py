@@ -21,7 +21,7 @@ def create_user(request):
 
 @csrf_exempt
 @require_api_key
-@api_view(['GET', 'PATCH'])
+@api_view(['GET', 'PATCH', 'DELETE'])
 def user(request, pk):
     try:
         user = User.objects.get(pk=pk)
@@ -37,3 +37,7 @@ def user(request, pk):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    
