@@ -28,7 +28,9 @@ API_SECRET_KEY = 'bd8e4d538dfa993960152da646'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'calify.pythonanywhere.com',
+]
 
 # REST Framework settings
 REST_FRAMEWORK = {
