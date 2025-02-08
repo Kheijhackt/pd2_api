@@ -4,9 +4,11 @@ from rest_framework.response import Response
 from .models import User
 from .serializer import UserSerializer
 from rest_framework import status
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
+@csrf_exempt
 @api_view(['POST'])
 def create_user(request):
     serializer = UserSerializer(data=request.data)
@@ -15,6 +17,7 @@ def create_user(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@csrf_exempt
 @api_view(['GET', 'PUT'])
 def user_detail(request, pk):
     try:
