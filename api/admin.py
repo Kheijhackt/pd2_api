@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import User
+from .models import Device
 
 # Register your models here.
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['code', 'weevil_detected', 'created', 'modified']
-    search_fields = ['code']
-    readonly_fields = ['created', 'modified']
+    list_display = ['id', 'operating', 'status', 'created', 'modified']
+    search_fields = ['id']
+    readonly_fields = ['operating', 'status', 'created', 'modified']
 
-admin.site.register(User, UserAdmin)
+admin.site.register(Device, UserAdmin)

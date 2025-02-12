@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import create_user, user
+from .views import register_device, device
 
 urlpatterns = [
-    path('create_user/', create_user),
-    path('user/<str:pk>/', user),
+    path('register_device/', register_device),
+    path('device/<str:pk>/', device),
 ]
