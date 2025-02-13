@@ -5,6 +5,7 @@ from .models import Device
 class UserAdmin(admin.ModelAdmin):
     list_display = ['id', 'operating', 'status', 'created', 'modified']
     search_fields = ['id']
-    readonly_fields = ['operating', 'status', 'created', 'modified']
+    # For testing purposes, the fields could be edited. 
+    # readonly_fields = ['operating', 'status', 'created', 'modified'] 
 
 admin.site.register(Device, UserAdmin)
